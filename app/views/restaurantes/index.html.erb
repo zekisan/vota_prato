@@ -1,0 +1,26 @@
+<h1>Listagem de restaurantes:</h1>
+
+<%= link_to 'Novo', action: 'new' %>
+
+<table>
+	<tr>
+		<th>Nome</th>
+		<th>Endereço</th>
+		<th>Especialidade</th>
+		<th></th>
+		<th></th>
+		<th></th>
+	</tr>
+	<% @restaurantes.each do |restaurante| %>
+		<tr>
+			<td><%= restaurante.nome %></td>
+			<td><%= restaurante.endereco %></td>
+			<td><%= restaurante.especialidade %></td>
+			<td><%= link_to  'Mostrar', action: 'show', id: restaurante %></td>
+			<td><%= link_to 'Deletar',{action: 'destroy', id: restaurante},{method: "delete"} %></td>
+			<td>
+  				<%= link_to 'Editar', action: 'edit', id: restaurante %>
+			</td>
+		</tr>
+	<% end %>
+</table>
